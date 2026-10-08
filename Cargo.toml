@@ -1,0 +1,53 @@
+[workspace]
+resolver = "3"
+members = ["crates/trosna", "crates/trosna-arrow", "crates/trosna-cli", "python"]
+default-members = ["crates/trosna", "crates/trosna-arrow", "crates/trosna-cli"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89"
+license = "MIT OR Apache-2.0"
+authors = ["Andrey Ferubko <ferubko1999@yandex.ru>"]
+repository = "https://github.com/89605502155/trosna-file"
+homepage = "https://github.com/89605502155/trosna-file"
+keywords = ["time-series", "file-format", "columnar", "arrow", "compression"]
+categories = ["encoding", "compression", "database-implementations", "science"]
+
+[workspace.dependencies]
+trosna = { path = "crates/trosna", version = "0.1.0" }
+trosna-arrow = { path = "crates/trosna-arrow", version = "0.1.0" }
+
+thiserror = "2"
+lz4_flex = { version = "0.14", default-features = false, features = ["std", "safe-encode", "safe-decode", "checked-decode"] }
+ruzstd = "0.9"
+crc32c = "0.6"
+sha2 = "0.11"
+
+# pyo3-arrow 0.19 is built against Arrow 59, so the whole workspace uses it.
+arrow-array = "59"
+arrow-buffer = "59"
+arrow-schema = "59"
+arrow-cast = "59"
+arrow-csv = "59"
+
+clap = { version = "4.6", features = ["derive"] }
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+
+pyo3 = "0.29"
+pyo3-arrow = "0.19"
+
+proptest = "1.11"
+tempfile = "3"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_debug_implementations = "warn"
+rust_2018_idioms = { level = "warn", priority = -1 }
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+[profile.release]
+lto = "thin"
+codegen-units = 4

@@ -1,0 +1,37 @@
+[build-system]
+requires = ["maturin>=1.8,<2"]
+build-backend = "maturin"
+
+[project]
+name = "trosna"
+description = "Trosna time-series files (.trosna): read and write them as easily as CSV, with pandas, Polars and PyArrow"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT OR Apache-2.0"
+authors = [{ name = "Andrey Ferubko", email = "ferubko1999@yandex.ru" }]
+keywords = ["time-series", "file-format", "arrow", "pandas", "polars"]
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Database",
+]
+dependencies = ["pyarrow>=15"]
+dynamic = ["version"]
+
+[project.urls]
+Repository = "https://github.com/89605502155/trosna-file"
+Documentation = "https://github.com/89605502155/trosna-file/blob/main/docs/GUIDE.md"
+Examples = "https://github.com/89605502155/trosna-file-demo"
+
+[project.optional-dependencies]
+pandas = ["pandas>=2.1"]
+polars = ["polars>=1.0"]
+test = ["pytest>=8", "pandas>=2.1", "polars>=1.0"]
+
+[tool.maturin]
+module-name = "trosna._trosna"
+features = ["pyo3/extension-module"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

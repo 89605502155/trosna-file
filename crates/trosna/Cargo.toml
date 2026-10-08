@@ -1,0 +1,28 @@
+[package]
+name = "trosna"
+description = "Memory-safe columnar time-series file format with verifiable, versioned editing (.trosna)"
+readme = "../../README.md"
+documentation = "https://docs.rs/trosna"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+lz4_flex.workspace = true
+ruzstd.workspace = true
+crc32c.workspace = true
+sha2.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+tempfile.workspace = true
+
+[lints]
+workspace = true

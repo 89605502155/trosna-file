@@ -1,0 +1,33 @@
+[package]
+name = "trosna-python"
+description = "Python bindings of the Trosna time-series file format"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish = false
+
+[lib]
+name = "_trosna"
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+trosna.workspace = true
+trosna-arrow.workspace = true
+arrow-schema.workspace = true
+# abi3: one wheel for CPython 3.11 and newer.
+pyo3 = { workspace = true, features = ["abi3-py311"] }
+pyo3-arrow.workspace = true
+
+# The workspace lints minus `unsafe_code = "forbid"`: PyO3's macros expand to
+# unsafe code. This crate's own code contains none.
+[lints.rust]
+missing_debug_implementations = "warn"
+rust_2018_idioms = { level = "warn", priority = -1 }
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }

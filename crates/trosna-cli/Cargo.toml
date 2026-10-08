@@ -1,0 +1,34 @@
+[package]
+name = "trosna-cli"
+description = "Command-line tool for Trosna time-series files (.trosna): CSV conversion, inspection, editing and history"
+readme = "../../README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories = ["command-line-utilities", "encoding", "science"]
+
+[[bin]]
+name = "trosna"
+path = "src/main.rs"
+
+[dependencies]
+trosna.workspace = true
+trosna-arrow.workspace = true
+# chrono-tz lets Arrow format time stamps of devices with IANA time zones.
+arrow-array = { workspace = true, features = ["chrono-tz"] }
+arrow-cast = { workspace = true, features = ["prettyprint"] }
+arrow-csv.workspace = true
+arrow-schema.workspace = true
+clap.workspace = true
+chrono.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

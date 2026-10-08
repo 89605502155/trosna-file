@@ -1,0 +1,14 @@
+/target
+/.venv
+__pycache__/
+*.py[cod]
+*.so
+/python/trosna/_trosna*.so
+.pytest_cache/
+/dist
+/wheels
+
+# machine-local settings and agent working files
+/.cargo/config.toml
+/.claude/
+/.superpowers/

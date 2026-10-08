@@ -1,0 +1,28 @@
+[package]
+name = "trosna-arrow"
+description = "Apache Arrow adapter for the Trosna time-series file format"
+readme = "../../README.md"
+documentation = "https://docs.rs/trosna-arrow"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[dependencies]
+trosna.workspace = true
+thiserror.workspace = true
+arrow-array.workspace = true
+arrow-buffer.workspace = true
+arrow-schema.workspace = true
+arrow-cast.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true
